@@ -1,0 +1,22 @@
+services:
+  ai-roast-machine:
+    build:
+      context: .
+      dockerfile: dockerfile
+    container_name: ai-roast
+    env_file:
+      - .env
+    volumes:
+      # Only mount specific directories that need to be shared
+      - ./src:/app/src
+      - ./logs:/app/logs
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    # Add healthcheck
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s

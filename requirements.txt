@@ -1,0 +1,8 @@
+langtest
+deepchecks
+textattack
+pillow
+requests
+python-dotenv
+flask==2.3.3
+gunicorn==21.2.0
