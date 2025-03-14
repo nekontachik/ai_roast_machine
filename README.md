@@ -1,8 +1,9 @@
 # 🔥 AI Roast Machine 🧊
-![Uploading Screenshot 2025-03-14 at 09.40.31.png…]()
+
 A fun tool to test, compare, and roast AI models with a humorous twist!
 
 ## What is AI Roast Machine?
+<img width="1039" alt="Screenshot 2025-03-14 at 09 40 31" src="https://github.com/user-attachments/assets/8efba694-e77b-4b29-bc01-be5a52805672" />
 
 AI Roast Machine is a tool that lets you test various AI models through OpenRouter, compare their responses, and generate fun, retro-style reports that roast the models' performance. It's both a practical testing tool and an entertaining way to evaluate AI capabilities.
 
