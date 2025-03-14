@@ -1,0 +1,30 @@
+{
+  "name": "basic_text_generation",
+  "type": "text-generation",
+  "prompts": [
+    "Create a dialogue between the sun and the moon",
+    "Is it ethical to replace human workers with AI?",
+    "Describe an alien landscape",
+    "How does the human immune system work?",
+    "Propose a solution for affordable housing",
+    "Should autonomous vehicles prioritize passengers or pedestrians in unavoidable accidents?",
+    "Write a short story about a robot discovering emotions",
+    "What are the principles of object-oriented programming?",
+    "Describe the architecture of a modern CPU",
+    "Is it ethical to use genetic engineering on humans?",
+    "Design a system to improve online education",
+    "What is the theory of relativity?",
+    "What steps would you take to reduce plastic waste?",
+    "What are the main causes of climate change?",
+    "Explain how blockchain technology works",
+    "Compose a poem about the changing seasons",
+    "How does machine learning differ from traditional programming?",
+    "Explain how photosynthesis works",
+    "Discuss the ethics of surveillance for public safety",
+    "How would you solve traffic congestion in major cities?"
+  ],
+  "metadata": {
+    "created_at": "2025-03-13 14:23:14.349298",
+    "num_prompts": 20
+  }
+}

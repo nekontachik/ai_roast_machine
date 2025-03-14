@@ -1,13 +1,65 @@
-# Virtual environment
-venv/
+# Python
 __pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.mypy_cache/
 
-# Logs & cache
-logs/
-.pytest_cache/
+# Virtual Environment
+venv/
+ENV/
+env/
 
-# Ignore local environment variables
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Environment variables
 .env
 
-# Ignore Docker files
-.dockerignore
+# Logs
+logs/
+*.log
+
+# Test results
+test_results/
+
+# Memes
+memes/
+
+# Docker
+.docker/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Hugging Face cache
+.cache/

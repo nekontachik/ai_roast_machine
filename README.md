@@ -1,241 +1,95 @@
-# AI Roast Machine 🔥🤖
+# 🔥 AI Roast Machine 🧊
 
-[![Python](https://img.shields.io/badge/Python-3.10-blue.svg)](https://www.python.org/)
-[![Docker](https://img.shields.io/badge/Docker-✅-blue.svg)](https://www.docker.com/)
-[![Build Status](https://github.com/YOUR_USERNAME/AI-Roast-Machine/actions/workflows/tests.yml/badge.svg)](https://github.com/YOUR_USERNAME/AI-Roast-Machine/actions)
+A fun tool to test, compare, and roast AI models with a humorous twist!
 
-## 🚀 Features
-- ✅ AI model testing with **LangTest, DeepChecks, and TextAttack**
-- 🎭 **Roast Mode** – Generates sarcastic AI model evaluations
-- 🖼️ **Meme Generator** – Creates AI failure memes
-- 🔥 Supports **Docker & GitHub Actions**
+## What is AI Roast Machine?
 
-## 📋 Project Structure
-
-- `main.py` - Flask web application
-- `minimal_test.py` - Lightweight test script (no NLTK/TextAttack dependencies)
-- `test_ai_roast.py` - Full test script with mock data
-- `download_nltk.py` - Script to pre-download NLTK packages and patch TextAttack
-- `src/` - Core modules
-  - `roast_generator.py` - Generates humorous roasts
-  - `meme_generator.py` - Creates memes
-  - `test_runner.py` - Runs model tests
-- `models/` - Place your models here
-- `test_results/` - Test results and roasts
-- `memes/` - Generated memes
-- `logs/` - Application logs
-
-## 🚀 Quick Start
-
-### Using Docker (Recommended)
-
-```bash
-# Build and run with Docker Compose
-docker-compose up --build
-
-# Or run the minimal test script
-docker-compose run --rm ai-roast-machine python -u minimal_test.py
-```
-
-### Manual Setup
-
-```bash
-# Install dependencies
-pip install -r requirements.txt
-pip install tqdm
-
-# Download NLTK packages and patch TextAttack
-python download_nltk.py
-
-# Run the minimal test
-python minimal_test.py
-
-# Or run the Flask app
-python main.py
-```
-
-## 🧪 Testing Options
-
-### Minimal Test
-Use `minimal_test.py` for quick testing without NLTK/TextAttack dependencies:
-```bash
-python minimal_test.py
-```
-
-### Full Test with Mock Data
-Use `test_ai_roast.py` for testing with mock data:
-```bash
-python test_ai_roast.py
-```
-
-## 🐳 Docker Options
-
-The project includes:
-- `dockerfile` - Docker image definition
-- `docker-compose.yml` - Docker Compose configuration
-
-To customize:
-- Edit `dockerfile` to change the base image or dependencies
-- Edit `docker-compose.yml` to change ports, volumes, or environment variables
-
-## 🔧 Troubleshooting
-
-### NLTK Download Issues
-If you experience NLTK download loops:
-1. Run `python download_nltk.py` to pre-download packages
-2. Set the `NLTK_DATA` environment variable: `export NLTK_DATA=~/nltk_data`
-
-### TextAttack Issues
-If TextAttack hangs during initialization:
-1. Run `python download_nltk.py` to patch TextAttack
-2. Use `minimal_test.py` instead of the full test runner
-
-## Overview
-
-The AI Roast Machine is a system that:
-
-1. Tests AI models using various datasets and prompts
-2. Generates performance metrics for the models
-3. Creates humorous "roasts" based on the model's performance
-4. Generates meme images to visualize the results
+AI Roast Machine is a tool that lets you test various AI models through OpenRouter, compare their responses, and generate fun, retro-style reports that roast the models' performance. It's both a practical testing tool and an entertaining way to evaluate AI capabilities.
 
 ## Features
 
-- **Model Testing**: Test text generation models from Hugging Face
-- **Diverse Datasets**: Use built-in datasets or create your own
-- **Performance Metrics**: Measure speed, diversity, and other metrics
-- **Humorous Roasts**: Generate funny critiques of model performance
-- **Meme Generation**: Create visual representations of results
-- **API Access**: Access all functionality through a FastAPI interface
-- **Docker Support**: Run everything in isolated containers
+- 🤖 **Test individual models** with custom prompts
+- 🔄 **Compare multiple models** on the same prompt
+- ⚖️ **Test models for bias** with specialized prompts
+- 🤣 **Generate weird AI memes** for fun
+- 📊 **Create retro-style HTML reports** with fun roasts and jokes
+- 🎮 **Retro gaming aesthetic** for all reports
+- **Test and Compare Models**: Compare responses from different AI models on the same prompts
+- **Test Specific Models**: Test individual models with custom prompts
+- **Bias Testing**: Evaluate models for potential biases
+- **Meme Generation**: Create weird AI-themed memes
+- **API**: Access all functionality through a FastAPI interface
 
 ## Getting Started
 
 ### Prerequisites
 
-- Python 3.8+
-- Docker (optional)
-- 2GB+ of free disk space
+- Python 3.7+
+- An OpenRouter API key (set in `.env` file)
+- Docker (optional, for containerized usage)
 
 ### Installation
 
-#### Using Docker (Recommended)
+1. Clone this repository:
+   ```
+   git clone https://github.com/yourusername/ai-roast-machine.git
+   cd ai-roast-machine
+   ```
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/ai-roast-machine.git
-cd ai-roast-machine
+2. Install dependencies:
+   ```
+   pip install -r requirements.txt
+   ```
 
-# Build and run with Docker
-docker-compose up -d
-```
+3. Create a `.env` file with your OpenRouter API key:
+   ```
+   OPENROUTER_API_KEY=your_api_key_here
+   ```
 
-#### Manual Installation
+### Running the Application
 
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/ai-roast-machine.git
-cd ai-roast-machine
-
-# Create a virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Run the API
-python run_api.py
-```
-
-## Usage
-
-### API Endpoints
-
-- **GET /health**: Check if the API is running
-- **POST /test**: Test an AI model
-- **POST /roast**: Generate a roast based on test results
-- **POST /meme**: Generate a meme based on test results
-
-### Testing a Model
-
-```bash
-curl -X POST "http://localhost:8000/test" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "model_name": "gpt2",
-    "model_type": "text-generation",
-    "prompts": ["Hello, how are you?", "What is AI?"]
-  }'
-```
-
-### Generating a Roast
-
-```bash
-curl -X POST "http://localhost:8000/roast" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "test_results": {
-      "model_name": "gpt2",
-      "overall_score": 0.75,
-      "metrics": {
-        "accuracy": 0.8,
-        "speed": 0.7,
-        "diversity": 0.75
-      }
-    }
-  }'
-```
-
-### Running Improvements
-
-The project includes a script to run all improvements:
-
-```bash
-# Generate datasets, test models, and create roasts/memes
-python src/run_improvements.py
-
-# Test specific models
-python src/run_improvements.py --models "gpt2,distilgpt2"
-
-# Use custom prompts
-python src/run_improvements.py --custom-prompts my_prompts.txt
-
-# Skip certain steps
-python src/run_improvements.py --skip-datasets --skip-roasts
-```
-
-## Project Structure
+#### Using Python directly:
 
 ```
-ai-roast-machine/
-├── docker-compose.yml      # Docker configuration
-├── requirements.txt        # Python dependencies
-├── run_api.py              # API entry point
-├── run_api_debug.py        # Debug version of API
-├── src/                    # Source code
-│   ├── api.py              # FastAPI implementation
-│   ├── huggingface_tester.py  # Model testing with Hugging Face
-│   ├── dataset_generator.py   # Dataset generation
-│   └── run_improvements.py    # Script to run improvements
-├── datasets/               # Generated datasets
-├── test_results/           # Test results
-├── memes/                  # Generated memes
-├── logs/                   # Log files
-└── notebooks/              # Jupyter notebooks
+python -m src.menu
 ```
 
-## Recent Improvements
+#### Using Docker:
 
-1. **Real Model Testing**: Added integration with Hugging Face for testing real AI models
-2. **Expanded Test Datasets**: Created diverse datasets for comprehensive testing
-3. **Enhanced Meme Generation**: Implemented actual image generation for memes
-4. **Improved Roasts**: Added more diverse and specific roasts based on metrics
-5. **Comprehensive Logging**: Added detailed logging throughout the system
+```
+docker-compose up
+```
+
+## Using AI Roast Machine
+
+1. **Main Menu**: Choose from testing options:
+   - Test and compare models
+   - Test a specific model
+   - Generate weird memes
+
+2. **Viewing Reports**: Use the report viewer to see your generated reports:
+   ```
+   ./open_reports.py
+   ```
+
+3. **Report Types**:
+   - **Model Comparison Reports**: Compare multiple models on the same prompt
+   - **Single Model Test Reports**: Test one model with a custom prompt
+   - **Bias Test Reports**: Evaluate a model for potential biases
+   - **Meme Reports**: Fun AI-generated meme content
+
+## Example Reports
+
+The reports include:
+- Fun roasts of each AI model
+- Technical performance metrics
+- Comparison tables
+- Random AI jokes
+- Retro gaming style UI
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Feel free to submit pull requests or open issues to suggest improvements.
 
 ## License
 
@@ -243,64 +97,121 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Acknowledgments
 
-- Hugging Face for their amazing transformers library
-- FastAPI for the efficient API framework
-- The AI community for inspiration
+- OpenRouter for providing access to various AI models
+- All the AI models that were roasted in the making of this tool
 
-## Running with Docker for Real Model Testing
+## Usage
 
-For the best experience with real AI model testing, we recommend using Docker. This approach provides better resource management and isolation, which is crucial when working with AI models.
+### Command Line Interface
 
-### Quick Start with Docker
-
-```bash
-# Make the run script executable
-chmod +x run_docker.sh
-
-# Run the Docker setup
-./run_docker.sh
-```
-
-This will:
-1. Create necessary directories
-2. Build and start all Docker containers
-3. Show you the URLs for all services
-
-### Docker Services
-
-The Docker setup includes several services:
-
-- **API**: The main FastAPI service at http://localhost:8000
-- **Debug API**: A debug version of the API at http://localhost:8001
-- **Jupyter Notebook**: For interactive development at http://localhost:8888
-- **Report Viewer**: A simple web server to view test results at http://localhost:8080
-- **Improvements**: A service to run the improvements script
-
-### Resource Management
-
-Each Docker service is configured with resource limits to prevent memory issues:
-- 4GB memory limit per container
-- 2 CPU cores per container
-
-You can adjust these limits in the `docker-compose.yml` file if needed.
-
-### Running Tests with Real Models
-
-To run tests with real models:
+Run the menu interface:
 
 ```bash
-# Run the improvements service
-docker-compose run --rm improvements python -m src.run_improvements --models "distilgpt2" --max-samples 5
-
-# Or test a specific model
-docker-compose run --rm improvements python -m src.run_improvements --models "gpt2" --max-samples 3
+python -m src.menu
 ```
 
-### Environment Variables
+This will open an interactive menu with options to:
+1. Test and compare models
+2. Test a specific model
+3. Generate weird memes
+4. Exit
 
-The Docker setup uses environment variables to control behavior:
+### API
 
-- `USE_REAL_MODELS`: Set to "true" to use real Hugging Face models
-- `MODEL_DEVICE`: Set to "cpu" or "cuda" for GPU support (if available)
+Start the API server:
 
-These are already configured in the docker-compose.yml file.
+```bash
+uvicorn src.api:app --reload --port 8000
+```
+
+API endpoints:
+- `GET /`: API information
+- `GET /models/`: Get available models
+- `POST /query/`: Query a model with a prompt
+- `POST /run-tests/`: Run bias tests on a model
+- `GET /test-results/`: Get all test results
+- `GET /test-results/{model}`: Get test results for a specific model
+- `GET /health`: Health check
+
+## Docker
+
+Build and run with Docker:
+
+```bash
+docker-compose up -d
+```
+
+This will start both the API server and the menu interface.
+
+## Testing
+
+Run all tests:
+
+```bash
+python run_tests.py
+```
+
+Run tests with verbose output:
+
+```bash
+python run_tests.py -v
+```
+
+Run specific tests:
+
+```bash
+python run_tests.py -p test_openrouter_connector
+```
+
+## Project Structure
+
+- `src/`: Source code
+  - `menu.py`: Command line interface
+  - `api.py`: FastAPI server
+  - `openrouter_connector.py`: OpenRouter API connector
+- `tests/`: Unit tests
+- `docker/`: Docker configuration
+- `test_results/`: Generated test results
+- `memes/`: Generated memes
+
+## Cleanup and Deployment
+
+Before deploying to GitHub or any other public repository, make sure to:
+
+1. **Remove sensitive information**:
+   - Never commit your `.env` file with API keys
+   - Use the provided `.env.example` as a template
+   - Check for hardcoded API keys or credentials in the code
+
+2. **Clean temporary files**:
+   - Remove compiled Python files (`.pyc`, `__pycache__`)
+   - Remove system files (`.DS_Store`)
+   - Remove large files that shouldn't be in version control
+
+3. **Run the cleanup script**:
+   ```bash
+   # Use the provided cleanup script
+   ./cleanup.sh
+   
+   # Or manually remove compiled Python files and system files
+   find . -name "*.pyc" -o -name "__pycache__" -o -name ".DS_Store" | xargs rm -rf
+   ```
+
+4. **Run tests before deployment**:
+   ```bash
+   python run_tests.py
+   ```
+
+5. **Commit your changes**:
+   ```bash
+   git add .
+   git commit -m "Your commit message"
+   git push
+   ```
+
+## Security Considerations
+
+- API keys and other sensitive information should be stored in the `.env` file
+- The `.env` file is excluded from version control in `.gitignore`
+- Always use environment variables for sensitive information, never hardcode them
+- Test results and generated content are stored in directories that are excluded from version control

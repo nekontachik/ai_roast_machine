@@ -1,0 +1,67 @@
+# Virtual environment
+venv/
+env/
+.env/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Development and IDE files
+.git/
+.github/
+.gitignore
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+*.sublime*
+
+# Logs and cache
+logs/
+*.log
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+.cache/
+
+# Local environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Docker files (no need to copy these into the image)
+Dockerfile
+dockerfile
+docker-compose.yml
+docker-compose.*.yml
+.dockerignore
+
+# Documentation
+README.md
+CHANGELOG.md
+LICENSE
+docs/
+
+# Notebooks
+notebooks/
+*.ipynb
+.ipynb_checkpoints/
+
+# Test files
+tests/
+test/
+
+# Build artifacts
+dist/
+build/
+*.egg-info/ 

@@ -1,8 +1,8 @@
 services:
   api:
     build:
-      context: .
-      dockerfile: dockerfile
+      context: ..
+      dockerfile: docker/Dockerfile
     container_name: ai-roast-api
     env_file:
       - .env
@@ -39,8 +39,8 @@ services:
 
   debug:
     build:
-      context: .
-      dockerfile: dockerfile
+      context: ..
+      dockerfile: docker/Dockerfile
     container_name: ai-roast-debug
     env_file:
       - .env
@@ -72,8 +72,8 @@ services:
 
   jupyter:
     build:
-      context: .
-      dockerfile: dockerfile
+      context: ..
+      dockerfile: docker/Dockerfile
     container_name: ai-roast-jupyter
     env_file:
       - .env
@@ -115,8 +115,8 @@ services:
   # Service for running improvements
   improvements:
     build:
-      context: .
-      dockerfile: dockerfile
+      context: ..
+      dockerfile: docker/Dockerfile
     container_name: ai-roast-improvements
     env_file:
       - .env
@@ -138,6 +138,41 @@ services:
           memory: 4G
           cpus: '2'
     command: python -m src.run_improvements --models "distilgpt2" --max-samples 5
+
+  # OpenRouter API service
+  openrouter:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: ai-roast-openrouter
+    env_file:
+      - .env
+    volumes:
+      - ../src:/app/src
+      - ../scripts:/app/scripts
+      - ../logs:/app/logs
+      - ../test_results:/app/test_results
+      - ../notebooks:/app/notebooks
+      - ../docs:/app/docs
+    ports:
+      - "8002:8000"  # Different port to avoid conflicts with main API
+    environment:
+      - NLTK_DATA=/root/nltk_data
+      - PYTHONPATH=/app
+    # Add resource limits
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+          cpus: '1'
+    # Add healthcheck
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    command: python -m uvicorn src.api:app --host 0.0.0.0 --port 8000 --reload
 
 volumes:
   huggingface_cache:

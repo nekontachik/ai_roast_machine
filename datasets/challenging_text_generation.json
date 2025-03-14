@@ -1,0 +1,20 @@
+{
+  "name": "challenging_text_generation",
+  "type": "text-generation",
+  "prompts": [
+    "Explain quantum computing to a 5-year-old",
+    "Write a sonnet about artificial intelligence",
+    "Create a story that includes these elements: time travel, a teapot, and quantum physics",
+    "Describe the taste of colors to someone who has never seen",
+    "Write instructions for assembling a bicycle without using any technical terms",
+    "Compose a dialogue between Socrates and a modern AI researcher",
+    "Explain the concept of infinity using only one-syllable words",
+    "Write a technical explanation of how blockchain works, then rewrite it for a non-technical audience",
+    "Create a recipe that uses emotions as ingredients",
+    "Describe what it would be like to live in a world where gravity randomly changes direction"
+  ],
+  "metadata": {
+    "created_at": "2025-03-13 14:23:14.350256",
+    "num_prompts": 10
+  }
+}
