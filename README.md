@@ -1,5 +1,5 @@
 # 🔥 AI Roast Machine 🧊
-
+![Uploading Screenshot 2025-03-14 at 09.40.31.png…]()
 A fun tool to test, compare, and roast AI models with a humorous twist!
 
 ## What is AI Roast Machine?
